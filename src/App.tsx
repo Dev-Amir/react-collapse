@@ -10,6 +10,7 @@ const App: React.FC = () => {
    const [isString, setIsString] = useState<boolean>(true);
    const [timeout, setTimeout] = useState<tTimeout>('medium');
 
+  //  method change state handler
    const setShowHeightHandler = (newValue: number): void => {
      const isNumber: boolean = Number.isInteger(newValue);
 
@@ -30,6 +31,7 @@ const App: React.FC = () => {
      setTimeout(newValue);
    }
 
+  //  JSX method
    const FormHandler = () => {
 
     return (
@@ -99,6 +101,15 @@ const App: React.FC = () => {
     );
    }
 
+  const CollapseBox = () => {
+
+     return (
+      <Collapse isOpen={isOpen} showHeight={showHeightValue} timeOut={timeout}>
+        <div className={styles.Layout}>Collapse Children</div>
+      </Collapse>
+     );
+  }
+
   return (
     <div className={styles.Container}>
       <FormHandler />
@@ -109,9 +120,7 @@ const App: React.FC = () => {
       <br />
       <br />
 
-      <Collapse isOpen={isOpen} showHeight={showHeightValue} timeOut={timeout}>
-        <div className={styles.Layout}>Collapse Children</div>
-      </Collapse>
+      <CollapseBox />
     </div>
   );
 };
